@@ -1,0 +1,73 @@
+version: 2
+
+models:
+  - name: trip
+    description: "This table records details of trips, including origin, destination, and key performance metrics."
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "trip_start < trip_end"
+          description: "Ensure that trip_start is always before trip_end."
+    columns:
+      - name: id
+        description: "Unique identifier for the trip."
+        tests:
+          - not_null
+          - unique
+
+      - name: aeroplane_id
+        description: "Identifier for the aeroplane used in the trip. References the aeroplane table."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('aeroplane')
+              field: id
+
+      - name: origin_city
+        description: "City where the trip originates."
+        tests:
+          - not_null
+
+      - name: destination_city
+        description: "City where the trip ends."
+        tests:
+          - not_null
+
+      - name: trip_start
+        description: "Timestamp indicating when the trip started."
+        tests:
+          - not_null
+
+      - name: trip_end
+        description: "Timestamp indicating when the trip ended."
+        tests:
+          - not_null
+
+      - name: trip_duration_minutes
+        description: "Duration of the trip in minutes."
+        tests:
+          - not_null
+
+      - name: seat_utilization_rate
+        description: "Percentage of available seats that were occupied during the trip."
+        tests:
+          - not_null
+      
+      - name: trip_start_week
+        description: "First day of the week (sunday) that the trip start"
+        tests:
+          - not_null
+
+      - name: trip_start_month
+        description: "First day of the month (sunday) that the trip start"
+        tests:
+          - not_null
+      
+      - name: trip_end_week
+        description: "First day of the week (sunday) that the trip end"
+        tests:
+          - not_null
+      
+      - name: trip_end_month
+        description: "First day of the week (sunday) that the trip end"
+        tests:
+          - not_null

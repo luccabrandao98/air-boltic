@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: aeroplane
+    description: "This table contains information about different aeroplane models, including their capacities and technical specifications."
+    columns:
+      - name: id
+        description: "Unique identifier for the aeroplane."
+        tests:
+          - not_null
+          - unique
+
+      - name: aeroplane_model
+        description: "Model name of the aeroplane."
+        tests:
+          - not_null
+
+      - name: manufacturer
+        description: "Company that manufactured the aeroplane."
+        tests:
+          - not_null
+
+      - name: engine_type
+        description: "Type of engine used in the aeroplane."
+        tests:
+          - not_null
+
+      - name: max_seats
+        description: "Maximum number of seats available in the aeroplane."
+        tests:
+          - not_null
+
+      - name: max_distance_km
+        description: "Maximum distance the aeroplane can travel in kilometers."
+        tests:
+          - not_null
+
+      - name: max_weight_kg
+        description: "Maximum weight capacity of the aeroplane in kilograms."
+        tests:
+          - not_null
+
+      - name: max_fuel_weight_kg
+        description: "Maximum fuel weight capacity in kilograms."
+        tests:
+          - not_null
+
+      - name: max_onboard_team_weight_kg
+        description: "Maximum weight capacity for the onboard team in kilograms."
+        tests:
+          - not_null
+
+      - name: max_baggage_weight_kg
+        description: "Maximum baggage weight capacity in kilograms."
+        tests:
+          - not_null
+
+      - name: max_baggage_weight_per_seat_kg
+        description: "Maximum baggage weight per seat in kilograms."
+        tests:
+          - not_null

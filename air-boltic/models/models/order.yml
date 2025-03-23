@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: order
+    description: "This table contains details of customer orders, including information about the seat and order status."
+    columns:
+      - name: id
+        description: "Unique identifier for the order."
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: "Identifier for the customer who made the order. References the customer table."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('customer')
+              field: id
+
+      - name: trip_id
+        description: "Identifier for the trip associated with the order. References the trip table."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('trip')
+              field: id
+
+      - name: aeroplane_id
+        description: "Identifier for the aeroplane used in the trip associated with the order. References the aeroplane table."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('aeroplane')
+              field: id
+
+      - name: seat_no
+        description: "The seat number associated to the aeroplane."
+        tests:
+          - not_null
+
+      - name: seat_type
+        description: "The type of seat, can be: window, middle or aisle"
+        tests:
+          - not_null
+
+      - name: status
+        description: "The status of the order (e.g., Booked, Finished or Cancelled)."
+        tests:
+          - not_null
+
+      - name: gmv
+        description: "Gross Merchandise Value (GMV) for this specific order."
+        tests:
+          - not_null
+
+      - name: cumulative_gmv_customer
+        description: "Cumulative GMV for the customer up to and including this order."
+        tests:
+          - not_null
+
+      - name: cumulative_not_canceled_gmv_customer
+        description: "Cumulative GMV for the customer, excluding canceled orders."
+        tests:
+          - not_null
+
+      - name: cumulative_order_count_customer
+        description: "Cumulative order count for the customer up to and including this order."
+        tests:
+          - not_null
+
+      - name: cumulative_not_canceled_order_count_customer
+        description: "Cumulative order count for the customer, excluding canceled orders."
+        tests:
+          - not_null

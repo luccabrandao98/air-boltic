@@ -1,8 +1,0 @@
-version: 2
-
-models:
-  - name: modelo_teste
-    description: 'aaaaaaa'
-    columns:
-      - name: batata
-        description: "Identificador de batata"

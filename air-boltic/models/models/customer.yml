@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: customer
+    description: "This table contains customer information, including personal details and aggregated trip data."
+    columns:
+      - name: id
+        description: "Unique identifier for the customer."
+        tests:
+          - not_null
+          - unique
+
+      - name: name
+        description: "Full name of the customer."
+        tests:
+          - not_null
+
+      - name: email
+        description: "Email address of the customer."
+        tests:
+          - unique
+
+      - name: phone_number
+        description: "Contact phone number of the customer."
+
+      - name: total_trips
+        description: "Total number of trips taken by the customer."
+        tests:
+          - not_null
+
+      - name: total_gmv_spent
+        description: "Total gross merchandise value spent by the customer."
+        tests:
+          - not_null
+
+      - name: customer_group_id
+        description: "Identifier for the customer group."
+
+      - name: customer_group_type
+        description: "Type of customer group the customer belongs to."
+        tests:
+          - not_null
+
+      - name: customer_group_name
+        description: "Name of the customer group."
+        tests:
+          - not_null
+
+      - name: customer_group_registry_number
+        description: "Registry number associated with the customer group."
+        tests:
+          - not_null
