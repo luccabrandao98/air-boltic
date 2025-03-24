@@ -4,7 +4,7 @@ A data modeling project using DBT for an airline, focused on facilitating monito
 ## Source ERD
 The company had a source ERD, shown below:
 
-<img src="jpg_files/source_erd.jpeg" width="1000" height="400">
+<img src="jpg_files/source_erd.jpeg" width="1500" height="400">
 
 This ERD has some problems:
 - Multiple joins are needed to answer simple business questions and to create KPIs (e.g., What is the seat occupancy per trip?);
